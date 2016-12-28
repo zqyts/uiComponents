@@ -1,0 +1,65 @@
+/*
+* @Author zhouqiyuan
+* @description:支持弹窗皮肤定制扩展
+* @Create：2016/12/02
+*
+*          .----.
+*       _.'__    `.
+*   .--(@)(@)----/#\
+* .' @          /###\
+* :         ,   #####
+*  `-..__.-' _.-\###/
+*        `;_:    `"'
+*      .'"""""`.
+*     //哈哈哈哈哈\
+*    // 好看吗 \
+*    `-._______.-'
+*    ___`. | .'___
+*   (______|______)
+*
+*/
+
+
+/*body .layer-ext-skin .layui-layer-padding {
+    padding: 27px 20px 22px 75px;
+}*/
+
+
+/*body .layer-ext-skin .layui-layer-title {
+    border-bottom: 1px solid #eee;
+    font-size: 18px;
+    color: #0e90d2;
+    padding: 0;
+    text-indent: 1em;
+    font-family: "Microsoft YaHei", "微软雅黑", "SimHei", "黑体";
+    height: 50px;
+    line-height: 44px;
+}*/
+
+
+/*右上角的X*/
+
+
+/*body .layer-ext-skin .layui-layer-btn {
+    text-align: right;
+    padding-right: 5px;
+}*/
+
+body .layer-ext-skin .layui-layer-btn .layui-layer-btn0 {
+    background: #0e90d2;
+    /*height: 36px;
+    line-height: 36px;
+    padding: 0 25px;
+    font-size: 14px;
+    border-radius: 4px;*/
+}
+
+
+/*body .layer-ext-skin .layui-layer-btn .layui-layer-btn1 {
+    background: #f37b1d;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 25px;
+    font-size: 14px;
+    border-radius: 4px;
+}*/
