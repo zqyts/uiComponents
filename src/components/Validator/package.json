@@ -1,0 +1,21 @@
+{
+  "name": "Validator",
+  "version": "1.0.0",
+  "description": "校验类",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Validate",
+    "validator"
+  ],
+  "author": "zhouqiyuan",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^2.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.1.0",
+    "jshint": "^2.9.4"
+  }
+}
