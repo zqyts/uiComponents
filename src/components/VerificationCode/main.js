@@ -1,4 +1,4 @@
-require(['./VerificationCode'], function(VerificationCode) {
+require(['./dist/js/VerificationCode.min'], function(VerificationCode) {
 	// console.log(VerificationCode);
 	VerificationCode.get("verificationCode-image", {
 		api: "/api/..."

@@ -1,17 +1,15 @@
-/*!
- * [description]原生js define模块化
- * Function:VerificationCode.js e.g.短信、图形验证码组件
- * author:zhouqiyuan
- * dependent:依赖小型轻量库reqwest.js,it just like ajax
- *
- * Date: 2016-11-23
+/**
+ *@Name：原生js 支持define模块化
+ *@description:VerificationCode.js e.g.短信、图形验证码组件，ajax依赖jquery
+ *@author：zhouqiyuan
+ *@create：2016-11-23
  */
-define(['../../lib/reqwest.min'], function(reqwest) {
+! function(win) {
   var _extend, _isObject, insertAfter;
 
   _isObject = function(o) {
     return Object.prototype.toString.call(o) === '[object Object]';
-  }
+  };
 
   _extend = function(destination, source) {
     var property;
@@ -29,19 +27,19 @@ define(['../../lib/reqwest.min'], function(reqwest) {
         }
       }
     }
-  }
+  };
 
   insertAfter = function(newElement, targetElement) {
-      var parent = targetElement.parentNode;
-      if (parent.lastChild == targetElement) {
-        // 如果最后的节点是目标元素，则直接添加。因为默认是最后
-        parent.appendChild(newElement);
-      } else {
-        parent.insertBefore(newElement, targetElement.nextSibling);
-        //如果不是，则插入在目标元素的下一个兄弟节点 的前面。也就是目标元素的后面
-      }
+    var parent = targetElement.parentNode;
+    if (parent.lastChild == targetElement) {
+      // 如果最后的节点是目标元素，则直接添加。因为默认是最后
+      parent.appendChild(newElement);
+    } else {
+      parent.insertBefore(newElement, targetElement.nextSibling);
+      //如果不是，则插入在目标元素的下一个兄弟节点 的前面。也就是目标元素的后面
     }
-    //创建验证码类
+  };
+  //创建验证码类
   function VerificationCode(el, options) {
     this.opt = this.extend({}, this.default, options);
     this.$element = document.getElementById(el);
@@ -88,7 +86,7 @@ define(['../../lib/reqwest.min'], function(reqwest) {
       for (i = arr.length - 1; i >= 0; i--) {
         if (_isObject(arr[i])) {
           _extend(arr[i], result);
-        };
+        }
       }
       arr[0] = result;
       return result;
@@ -199,7 +197,8 @@ define(['../../lib/reqwest.min'], function(reqwest) {
     },
     sendMessageCode: function() {
       var tel = this.children(this.$element, "input")[0];
-      if (tel.value === "") {
+      var reg = /^1[34578]\d{9}$/;
+      if (!reg.test(tel.value)) {
         if (tel.nextSibling.nodeName != "SPAN") {
           var node = document.createElement("span");
           var textnode = document.createTextNode(this.opt.telErrInfo);
@@ -244,17 +243,26 @@ define(['../../lib/reqwest.min'], function(reqwest) {
             obj.innerHTML = "重新发送";
           } else {
             obj.setAttribute('disabled', true);
-            obj.innerHTML = "重新发送(" + count + "s" + ")";
+            obj.innerHTML = "已发送(" + count + "s" + ")";
             count--;
           }
         }
-      }
+      };
       o.timer();
     }
   };
-  return {
-    get: function() {
-      new VerificationCode(arguments[0], arguments[1]);
-    }
-  };
-});
+  typeof define === 'function' ? define(function() { //requirejs加载
+    return {
+      get: function() {
+        new VerificationCode(arguments[0], arguments[1]);
+      }
+    };
+  }) : function() { //普通script标签加载
+    var verificationObj = {
+      get: function() {
+        new VerificationCode(arguments[0], arguments[1]);
+      }
+    };
+    window.VerificationCode = verificationObj;
+  }();
+}(window);
