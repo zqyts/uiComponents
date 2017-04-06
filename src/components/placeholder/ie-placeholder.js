@@ -70,8 +70,8 @@
     });
 
     $(passwordPlaceholder).focus(function(e) {
-      input.show().focus();
       passwordPlaceholder.hide();
+      input.show().focus();
     });
   }
 
