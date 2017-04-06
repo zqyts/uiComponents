@@ -1,0 +1,6 @@
+input[type='password']:focus{
+  color:#333\9;
+}
+[placeholder]{
+  color:#999\9;
+}
